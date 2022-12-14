@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+
+import {Layout} from 'antd';
+import LayoutFooter from './components/layout-components/LayoutFooter';
+import LayoutHeader from './components/layout-components/LayoutHeader';
+import { Route, Routes } from 'react-router-dom';
+import { routes } from './routes/routes';
+
+const { Header, Content, Footer } = Layout;
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return (<>
+
+    <Layout className="layout">
+      <LayoutHeader />
+
+      <Content style={{ padding: '0 50px' }}>
+        <div className="site-layout-content">
+          <Routes>
+
+              {
+                routes.map((item) => <Route path={item.path} element={item.element}></Route>)
+              }
+          </Routes>
+        </div>
+      </Content>
+
+      <LayoutFooter />
+    </Layout>
+
+  </>)
 }
 
-export default App;
+export default App
