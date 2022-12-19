@@ -65,6 +65,12 @@ function ProductList() {
             dataIndex: 'id',
             render: (id) => <Button type="primary" ghost onClick={() => goToDetail(id)}>Go to Detail</Button>
         }
+        ,
+        {
+            title: 'Update',
+            dataIndex: 'id',
+            render: (id) => <Button type="primary" ghost onClick={() => navigate('/admin/products/update/' + id)}>Update</Button>
+        }
     ]
 
 
