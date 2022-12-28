@@ -1,11 +1,13 @@
 import { Menu } from 'antd';
 import { Header } from 'antd/es/layout/layout';
-import React from 'react'
-import { menuList } from './menuList';
+import React, { useContext } from 'react'
+import { favoriteContext } from '../../store/FavoriteContext';
+import { getMenuList } from './menuList';
 
 function LayoutHeader() {
 
 
+    let { favorites } = useContext(favoriteContext);
 
     return (
         <Header>
@@ -14,7 +16,7 @@ function LayoutHeader() {
                 theme="dark"
                 mode="horizontal"
                 defaultSelectedKeys={[2]}
-                items={menuList}
+                items={getMenuList(favorites.length)}
             />
         </Header>
     )
