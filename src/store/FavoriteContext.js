@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { getFavoritesFromStorage } from "../library/helpers/storageHelper";
 
 export const favoriteContext = createContext(null);
 
@@ -11,6 +12,15 @@ export const FavoriteProvider = ({ children }) => {
         favorites,
         setfavorites
     }
+
+
+    useEffect(() => {
+      
+        let favFromStorage = getFavoritesFromStorage();
+        setfavorites(favFromStorage);
+        
+    }, [])
+    
 
     return <favoriteContext.Provider value={values}>{children}</favoriteContext.Provider>
 

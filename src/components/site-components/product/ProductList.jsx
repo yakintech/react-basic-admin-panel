@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { network } from '../../../network/network';
 import { StarOutlined, StarFilled } from '@ant-design/icons';
 import { favoriteContext } from '../../../store/FavoriteContext';
+import { setFavoritesStorage } from '../../../library/helpers/storageHelper';
 
 function ProductList() {
 
@@ -55,11 +56,13 @@ function ProductList() {
         let favoriteControl = favorites.find(q => q.id == id);
 
         if (!favoriteControl) {
+            setFavoritesStorage([...favorites, product])
             setfavorites([...favorites, product]);
         }
         else {
             let filteredFavorites = favorites.filter(q => q.id != id);
             setfavorites([...filteredFavorites])
+            setFavoritesStorage([...filteredFavorites])
         }
 
 

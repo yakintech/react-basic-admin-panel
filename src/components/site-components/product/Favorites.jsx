@@ -1,5 +1,6 @@
 import { Button, Table } from 'antd'
 import React, { useContext } from 'react'
+import { setFavoritesStorage } from '../../../library/helpers/storageHelper';
 import { favoriteContext } from '../../../store/FavoriteContext'
 
 function Favorites() {
@@ -17,8 +18,13 @@ function Favorites() {
         }
     ]
 
+    const emptyFavorites = () => {
+        setfavorites([]);
+        setFavoritesStorage([]);
+    }
+
     return (<>
-        <Button danger onClick={() => setfavorites([])}>Empty</Button>
+        <Button danger onClick={emptyFavorites}>Empty</Button>
         <Table
             dataSource={favorites}
             columns={columns}

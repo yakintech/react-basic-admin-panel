@@ -1,6 +1,7 @@
 import AddCategory from "../components/site-components/categories/AddCategory";
 import AddCounter from "../components/site-components/counter/AddCounter";
 import Home from "../components/site-components/home/Home";
+import Parent from "../components/site-components/memo/Parent";
 import AddProduct from "../components/site-components/product/AddProduct";
 import Favorites from "../components/site-components/product/Favorites";
 import ProductDetail from "../components/site-components/product/ProductDetail";
@@ -44,5 +45,9 @@ export const routes = [
     {
         path:'/admin/addcategory' ,
         element: <AddCategory/>
+    },
+    {
+        path:'/admin/memo' ,
+        element: <Parent/>
     }
 ]

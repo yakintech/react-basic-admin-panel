@@ -33,6 +33,11 @@ export const getMenuList = (count) => {
             key: 5,
             label: <Link to='/admin/addcategory'>Add Category</Link>
         }
+        ,
+        {
+            key: 6,
+            label: <Link to='/admin/memo'>Memo Sample</Link>
+        }
     ]
 
     return menuList
